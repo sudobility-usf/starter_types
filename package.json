@@ -1,0 +1,63 @@
+{
+  "name": "@sudobility/starter_types",
+  "version": "0.0.1",
+  "description": "TypeScript types for Starter API - template project",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "bun run build:cjs && bun run build:esm",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json && bun run build:cjs-rename",
+    "build:cjs-rename": "for f in dist/*.js; do mv \"$f\" \"${f%.js}.cjs\"; done",
+    "clean": "rimraf dist",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.{ts,js,json,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,js,json,md}\"",
+    "typecheck": "tsc --noEmit",
+    "verify": "bun run typecheck && bun run lint && bun run test && bun run build",
+    "prepublishOnly": "bun run clean && bun run verify"
+  },
+  "files": [
+    "dist/**/*",
+    "CLAUDE.md"
+  ],
+  "keywords": [
+    "typescript",
+    "types",
+    "starter",
+    "api"
+  ],
+  "author": "Sudobility",
+  "license": "BUSL-1.1",
+  "peerDependencies": {
+    "@sudobility/types": "^1.9.50"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "@sudobility/types": "^1.9.50",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "eslint": "^9.38.0",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
