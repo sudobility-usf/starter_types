@@ -1,6 +1,6 @@
 {
   "name": "@sudobility/starter_types",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "TypeScript types for Starter API - template project",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -43,11 +43,11 @@
   "author": "Sudobility",
   "license": "BUSL-1.1",
   "peerDependencies": {
-    "@sudobility/types": "^1.9.50"
+    "@sudobility/types": "^1.9.52"
   },
   "devDependencies": {
     "@eslint/js": "^9.38.0",
-    "@sudobility/types": "^1.9.50",
+    "@sudobility/types": "^1.9.52",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",
     "eslint": "^9.38.0",
