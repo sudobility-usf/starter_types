@@ -25,7 +25,7 @@ src/
 ```bash
 bun run build          # Build dual ESM/CJS (build:esm + build:cjs)
 bun run dev            # Watch mode
-bun test               # Run tests
+bun test               # Run Vitest tests (src/index.test.ts)
 bun run typecheck      # TypeScript check
 bun run lint           # Run ESLint
 bun run verify         # All checks + build (use before commit)
@@ -97,9 +97,3 @@ All other starter_* projects depend on this package. This package depends on `@s
 - Always run `bun run verify` before publishing to catch type errors, lint issues, and build failures
 - The `BaseResponse<T>` wrapper is the standard API envelope -- all API responses must conform to it
 - Do not add runtime dependencies; this package should remain a lightweight type-only dependency (response helpers are the sole exception)
-
-## Testing
-
-- Run tests: `bun test`
-- Tests are in `src/index.test.ts`
-- Tests verify that type exports exist, response helpers produce correct `BaseResponse<T>` shapes, and re-exports from `@sudobility/types` are accessible
