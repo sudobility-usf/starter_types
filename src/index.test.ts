@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   successResponse,
   errorResponse,
@@ -134,7 +134,9 @@ describe('starter_types', () => {
 
     it('HistoryUpdateRequest should allow partial fields', () => {
       const request1: HistoryUpdateRequest = { value: 50 };
-      const request2: HistoryUpdateRequest = { datetime: '2025-01-15T12:00:00.000Z' };
+      const request2: HistoryUpdateRequest = {
+        datetime: '2025-01-15T12:00:00.000Z',
+      };
       const request3: HistoryUpdateRequest = {};
 
       expect(request1.value).toBe(50);
@@ -201,7 +203,11 @@ describe('starter_types', () => {
 
       expect(response.success).toBe(false);
       expect(response).not.toHaveProperty('data');
-      expect(Object.keys(response).sort()).toEqual(['error', 'success', 'timestamp']);
+      expect(Object.keys(response).sort()).toEqual([
+        'error',
+        'success',
+        'timestamp',
+      ]);
     });
 
     it('should generate valid ISO 8601 timestamp format', () => {
@@ -339,7 +345,8 @@ describe('starter_types', () => {
 
   describe('ISODateString type alias', () => {
     it('should accept ISO 8601 formatted strings', () => {
-      const isoDate: ISODateString = '2025-01-15T10:30:00.000Z' as ISODateString;
+      const isoDate: ISODateString =
+        '2025-01-15T10:30:00.000Z' as ISODateString;
 
       expect(isoDate).toBe('2025-01-15T10:30:00.000Z');
     });
@@ -515,7 +522,11 @@ describe('starter_types', () => {
     it('should contain exactly success, data, and timestamp keys', () => {
       const response = successResponse('test');
 
-      expect(Object.keys(response).sort()).toEqual(['data', 'success', 'timestamp']);
+      expect(Object.keys(response).sort()).toEqual([
+        'data',
+        'success',
+        'timestamp',
+      ]);
     });
   });
 
