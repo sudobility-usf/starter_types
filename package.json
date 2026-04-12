@@ -1,6 +1,6 @@
 {
   "name": "@sudobility/starter_types",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "TypeScript types for Starter API - template project",
   "type": "module",
   "main": "./dist/index.js",

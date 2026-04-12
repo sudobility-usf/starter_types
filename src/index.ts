@@ -138,6 +138,45 @@ export interface HistoryTotalResponse {
   total: number;
 }
 
+/**
+ * Response for the root API metadata endpoint (`GET /`).
+ *
+ * @example
+ * ```typescript
+ * const info: ApiInfoResponse = {
+ *   name: 'Starter API',
+ *   version: '1.0.0',
+ *   status: 'healthy',
+ * };
+ * ```
+ */
+export interface ApiInfoResponse {
+  /** The name of the API */
+  name: string;
+  /** The API version string */
+  version: string;
+  /** Current operational status */
+  status: string;
+}
+
+/**
+ * Response for the health check endpoint (`GET /health`).
+ *
+ * @example
+ * ```typescript
+ * const health: HealthResponse = {
+ *   status: 'ok',
+ *   version: '1.0.0',
+ * };
+ * ```
+ */
+export interface HealthResponse {
+  /** Current health status */
+  status: string;
+  /** The API version string */
+  version: string;
+}
+
 // =============================================================================
 // Response Helpers
 // =============================================================================
